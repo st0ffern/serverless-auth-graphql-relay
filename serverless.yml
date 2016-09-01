@@ -1,0 +1,67 @@
+# Welcome to Serverless!
+#
+# This file is the main config file for your service.
+# It's very minimal at this point and uses default values.
+# You can always add more config options for more control.
+# We've included some commented out config examples here.
+# Just uncomment any of them to get that config option.
+#
+# For full config options, check the docs:
+#    v1.docs.serverless.com
+#
+# Happy Coding!
+
+service: es6-test # NOTE: update this with your service name
+
+provider:
+  name: aws
+  runtime: nodejs4.3
+
+defaults:
+  stage: dev
+  region: eu-west-1
+
+
+functions:
+  create:
+    handler: lib/user/handler.create
+    events:
+      - http:
+          path: create
+          method: POST
+          cors: true
+  login:
+    handler: lib/user/handler.login
+    events:
+      - http:
+          path: login
+          method: POST
+          cors: true
+  forgot:
+    handler: lib/user/handler.forgot
+    events:
+      - http:
+          path: forgot
+          method: POST
+          cors: true
+
+
+package:
+  include:
+    - lib
+    - node_modules
+  exclude:
+    - .gitignore
+    - .synk
+    - .travis.yml
+    - deploy.sh
+    - package.json
+    - README.md
+
+
+plugins:
+  - serverless-scriptable-plugin
+  
+custom:
+  scriptHooks:
+    before:deploy:createDeploymentArtifacts: build/package.js

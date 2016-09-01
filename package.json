@@ -1,0 +1,35 @@
+{
+  "name": "serverless-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "stoffern",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.3.0",
+    "jsonwebtoken": "^7.1.9",
+    "lodash": "^4.15.0",
+    "mongoose": "^4.5.10",
+    "mongoose-class-wrapper": "^0.8.0",
+    "mongoose-timestamp": "^0.6.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-plugin-transform-async-to-generator": "^6.8.0",
+    "babel-plugin-transform-class-properties": "^6.11.5",
+    "babel-plugin-transform-flow-strip-types": "^6.14.0",
+    "babel-plugin-transform-runtime": "^6.12.0",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "bluebird": "^3.4.5",
+    "child_process": "^1.0.2",
+    "fs": "0.0.1-security",
+    "fs-extra": "^0.30.0",
+    "node-zip": "^1.1.1",
+    "path": "^0.12.7",
+    "serverless-scriptable-plugin": "^0.2.0"
+  }
+}
