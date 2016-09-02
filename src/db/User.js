@@ -4,9 +4,12 @@ import timestamps from 'mongoose-timestamp'
 import bcryptjs from 'bcryptjs'
 
 const Schema = mongoose.Schema
+mongoose.Promise = Promise
+
  
 // Create mongoose schema 
 var UserSchema = new Schema({
+
 
   "email" : {type: String, unique: true, required: true},
   "firstName" : {type: String, unique: false, required: true},
@@ -25,6 +28,10 @@ class UserModel {
   }
   set password(password) {
     this.hashedPassword = this.encryptPassword(password)
+  }
+ 
+  checkPassword(password) {
+    return bcryptjs.compareSync(password, this.hashedPassword)
   }
  
   encryptPassword(password) {
