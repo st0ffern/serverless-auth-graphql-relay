@@ -24,26 +24,38 @@ defaults:
 
 functions:
   create:
-    handler: lib/user/handler.create
+    handler: lib/handlers/auth.create
     events:
       - http:
           path: create
-          method: POST
-          cors: true
+          method: post
   login:
-    handler: lib/user/handler.login
+    handler: lib/handlers/auth.login
     events:
       - http:
           path: login
-          method: POST
-          cors: true
+          method: post
+  whoami:
+    handler: lib/handlers/auth.whoami
+    events:
+      - http:
+          path: whoami
+          method: get
+          
   forgot:
-    handler: lib/user/handler.forgot
+    handler: lib/handlers/auth.forgot
     events:
       - http:
           path: forgot
-          method: POST
-          cors: true
+          method: post
+
+          
+  graphql:
+    handler: lib/handlers/graphql.graph
+    events:
+      - http:
+          path: graphql
+          method: post
 
 
 package:
@@ -54,10 +66,8 @@ package:
     - .gitignore
     - .synk
     - .travis.yml
-    - deploy.sh
     - package.json
     - README.md
-
 
 plugins:
   - serverless-scriptable-plugin
