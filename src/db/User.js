@@ -52,12 +52,14 @@ var UserSchema = new Schema({
   "hashedPassword" : {
     type: String, 
     unique: false, 
-    required: true
+    required: true,
+    hidden: true,
   },
   "resetPasswordToken" : {
     type: String, 
     unique: false, 
-    required: false
+    required: false,
+    hidden: true,
   },
 })
  
