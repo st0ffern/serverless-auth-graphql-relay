@@ -4,7 +4,7 @@ export default {
     aws_secret_key: "aws_secret_key",
   },
   database:{
-    uri: "databaseURI"
+    uri: "database"
   },
   jwt: {
     signature: "signature"

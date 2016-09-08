@@ -17,6 +17,7 @@
     "mongoose": "^4.5.10",
     "mongoose-class-wrapper": "^0.8.0",
     "mongoose-timestamp": "^0.6.0",
+    "node-fetch": "^1.6.0",
     "node-yaml": "^3.0.0",
     "pug": "^2.0.0-beta6",
     "yamljs": "^0.2.8"
@@ -35,6 +36,7 @@
     "fs-extra": "^0.30.0",
     "node-zip": "^1.1.1",
     "path": "^0.12.7",
+    "serverless-offline": "^2.8.3",
     "serverless-scriptable-plugin": "^0.2.0"
   }
 }

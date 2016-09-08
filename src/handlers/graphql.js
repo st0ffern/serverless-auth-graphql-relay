@@ -1,15 +1,11 @@
 import {getSchema} from '@risingstack/graffiti-mongoose'
-import graphql from 'graphql'
+import {graphql} from 'graphql'
 import mongoose from 'mongoose'
 
 import UserModel from '../db/User'
 import Config from '../config'
 
 mongoose.Promise = Promise
-
-
-
-
 
 
 /**
@@ -26,11 +22,16 @@ export function graph (event, context, cb){
     allowMongoIDMutation: false
   })
 
-
   if (query && query.hasOwnProperty('query'))
     query = query.query.replace("\n", ' ', "g")
-
+  
   graphql(Schema, query)
-  .then(response => cb(null, response))
-  .then(error => cb(error))
+  .then(response => {
+    mongoose.connection.close()
+    cb(null, response)
+  })
+  .catch(error => {
+    mongoose.connection.close()
+    cb(error)
+  })
 }

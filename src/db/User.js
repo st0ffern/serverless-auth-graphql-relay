@@ -3,11 +3,10 @@ import loadClass from 'mongoose-class-wrapper'
 import timestamps from 'mongoose-timestamp'
 import bcryptjs from 'bcryptjs'
 
-const Schema = mongoose.Schema
 mongoose.Promise = Promise
 
 // Create mongoose schema 
-var UserSchema = new Schema({
+var UserSchema = new mongoose.Schema({
   "email" : {
     type: String, 
     unique: true, 
